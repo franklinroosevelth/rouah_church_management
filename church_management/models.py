@@ -85,15 +85,19 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return f"{self.username}"
 
 class ProgrammeHabituel(models.Model):
+    titre = models.CharField(max_length=100, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     jour = models.CharField(max_length=100, null=True, blank=True)
     heure_debut = models.TimeField(null=True, blank=True)
     heure_fin = models.TimeField(null=True, blank=True)
+    image = models.FileField(null=True, blank=True, upload_to='communique_images/')
     status = models.BooleanField(default=False)
     create_date = models.DateTimeField(auto_now_add=True)
     
 class Communique(models.Model):
     titre = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    image = models.FileField(null=True, blank=True, upload_to='communique_images/')
     status = models.BooleanField(default=False)
     create_date = models.DateTimeField(auto_now_add=True)
     

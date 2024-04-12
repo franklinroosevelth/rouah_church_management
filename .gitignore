@@ -1,0 +1,4 @@
+./church_management/migrations
+*.pyc
+manage.py
+.gitgnore
